@@ -1,0 +1,3 @@
+com\ccy\springcloud\DeptCustomerFeign_App.class
+com\ccy\springcloud\controller\DeptController_Customer.class
+com\ccy\springcloud\cfgbeans\configBeans.class

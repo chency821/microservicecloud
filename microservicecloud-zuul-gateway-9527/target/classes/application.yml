@@ -1,0 +1,29 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+# 配置zuul路由规则
+zuul:
+  prefix: /ccy        #公共前缀
+  ignored-services: "*"  #禁用所有 #microservicecloud-dept  # 服务名称隐藏
+  routes:
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/**
+# 测试 http://myzuul.com:9527/ccy/mydept/dept/get/1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      #defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: gateway-9527.com                     # 自定义服务别名处理
+    prefer-ip-address: true                           # 访问路径显示ip地址
+#服务info信息
+info:
+  app.name: ccy-microservicecloud
+  company.name: www.ccy.com
+  build.artifactId: microservicecloud-zuul-gateway-9527
+  build.version: 1.0-SNAPSHOT
